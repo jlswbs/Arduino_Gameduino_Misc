@@ -1,4 +1,4 @@
-// Random XOR fractal //
+// Random AND fractal //
 
 #include "SPI.h"
 #include "GD.h"
@@ -40,7 +40,7 @@ void setup() {
   GD.wr16(PALETTE4A + 2, RANDOM_RGB());
   GD.wr16(PALETTE4A + 4, RANDOM_RGB());
   GD.wr16(PALETTE4A + 6, RANDOM_RGB());
-  GD.putstr(16, 1, "Random XOR fractal");
+  GD.putstr(16, 1, "Random AND fractal");
   GD.putstr(16, 36, "Created by JLS 2024");
     
 }
@@ -50,6 +50,6 @@ void loop() {
   x = rand()%WIDTH;
   y = rand()%HEIGHT;
 
-  setpixel (x, y, replicate((x^y)%3));
+  setpixel (x, y, replicate((x&y)%3));
     
 }
